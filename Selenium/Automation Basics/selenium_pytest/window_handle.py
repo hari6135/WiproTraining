@@ -38,3 +38,22 @@ def test_multiple_win_handle(driver):
     driver.switch_to.window(parent_window)
     time.sleep(3)
     assert driver.title == 'The Internet', 'Parent window switch did NOT happen'
+
+
+def test_open_multi_win(driver):
+    new_win = driver.find_element(By.LINK_TEXT,"Click Here")
+
+    for _ in range(3):
+        new_win.click()
+
+    handles = driver.window_handles
+    assert len(handles) == 4, 'Multiple windows did NOT happen'
+
+    #switching:
+    for handle in handles:
+        driver.switch_to.window(handle)
+        time.sleep(3)
+        if handle != handles[0]:
+            header = driver.find_element(By.TAG_NAME, "h3").text
+            assert header == "New Window", 'New Window switch did NOT happen'
+            driver.close()
