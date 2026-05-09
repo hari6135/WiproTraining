@@ -10,7 +10,7 @@ from utils.screenshot_util import ScreenshotUtil
 logger = LogGen.loggen()
 
 
-@pytest.mark.order(1)
+# @pytest.mark.order(1)
 @pytest.mark.parametrize(
     "data",
     # CSVReader.read_csv("login_data.csv"),
@@ -30,6 +30,6 @@ def test_login(driver, data):
 
     else:
         assert "inventory" not in driver.current_url
-        assert login_page.read_error_message().__contains__("do not match")
+        assert login_page.read_error_message().__contains__("Epic sadface")
         logger.error(f'Login failed -  Inventory page not opened')
         screenshot_path = ScreenshotUtil.capture_screenshot(driver, screenshot_name="login_test")

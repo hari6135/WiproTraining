@@ -1,7 +1,9 @@
 import logging
 import os
 
+
 class LogGen:
+
     @staticmethod
     def loggen():
         log_dir = "logs"
@@ -16,7 +18,8 @@ class LogGen:
                 "logs/automation.log"
             )
             formatter = logging.Formatter(
-                "%(asctime)s - %(levelname)s - %(message)%"
+                "%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+                datefmt="%Y-%m-%d %H:%M:%S"
             )
 
             file_handler.setFormatter(formatter)

@@ -20,7 +20,7 @@ def driver():
     print(f"Browser from config: '{browser}'")
 
     base_url = ConfigReader.get("base_url").strip() .lower()
-    headless = ConfigReader.get("headless").strip()
+    # headless = ConfigReader.get("headless").strip()
 
     if browser == "edge":
             edge_options = EdgeOptions()
@@ -28,8 +28,8 @@ def driver():
             edge_options.add_argument("--disable-notifications")
             edge_options.add_argument("--disable-infobars")
             edge_options.add_argument("--disable-extensions")
-            if headless:
-                edge_options.add_argument("--headless")
+            # if headless:
+            #     edge_options.add_argument("--headless")
             driver = webdriver.Edge(options=edge_options)
     elif browser == "chrome":
             chrome_options = ChromeOptions()
@@ -37,8 +37,8 @@ def driver():
             chrome_options.add_argument("--disable-notifications")
             chrome_options.add_argument("--disable-infobars")
             chrome_options.add_argument("--disable-extensions")
-            if headless:
-                chrome_options.add_argument("--headless")
+            # if headless:
+            #     chrome_options.add_argument("--headless")
             driver = webdriver.Chrome(
                 service=ChromeService(ChromeDriverManager().install()),
                 options=chrome_options
@@ -49,9 +49,9 @@ def driver():
         edge_options.add_argument("--disable-notifications")
         edge_options.add_argument("--disable-infobars")
         edge_options.add_argument("--disable-extensions")
-        if headless:
-            edge_options.add_argument("--headless")
-        driver = webdriver.Edge(options=edge_options  )
+        # if headless:
+        #     edge_options.add_argument("--headless")
+        driver = webdriver.Edge(options=edge_options)
 
     logger.info(f'Opened browser: {browser}')
     driver.get(base_url)
