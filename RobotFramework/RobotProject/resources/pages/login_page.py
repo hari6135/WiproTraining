@@ -37,12 +37,14 @@ from resources.variables.testdata import (
 
 class LoginPage:
 
-    def __init__(self):
-        self.selenium = cast(
+    @property
+    def selenium(self):
+        return cast(
             SeleniumLibrary,
             BuiltIn().get_library_instance(
                 "SeleniumLibrary"
-            ))
+            )
+        )
 
     @keyword
     def launch_demoblaze_application(self):

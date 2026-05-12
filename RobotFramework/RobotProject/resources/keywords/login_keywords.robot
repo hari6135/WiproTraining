@@ -1,6 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
-Library     ../pages/LoginPage.py
+Library     ../pages/login_page.py
 
 *** Keywords ***
 Open Demoblaze Application
