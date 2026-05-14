@@ -21,3 +21,5 @@ print("Data from Excel:\n", excel_data)
 
 json_data = pd.read_json('sample_data.json')
 print("Data from JSON:\n", json_data)
+
+
