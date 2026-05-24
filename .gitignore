@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtual Env
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Allure / Reports
+allure-report/
+allure-results/
+htmlcov/
+reports/
+
+# Robot Framework
+log.html
+report.html
+output.xml
